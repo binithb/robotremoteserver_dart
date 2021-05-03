@@ -7,7 +7,6 @@ import 'dart:mirrors';
 import 'package:xml_rpc/client.dart';
 import 'package:xml_rpc/simple_server.dart' as xml_rpc_server;
 import 'src/converter.dart';
-export 'src/robotremoteserver_base.dart';
 
 // TODO: Export any libraries intended for clients of this package.
 
