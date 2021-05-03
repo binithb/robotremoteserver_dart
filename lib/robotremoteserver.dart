@@ -1,14 +1,9 @@
-/// Support for doing something awesome.
-///
-/// More dartdocs go here.
 library robotremoteserver;
 import 'dart:mirrors';
 
 import 'package:xml_rpc/client.dart';
 import 'package:xml_rpc/simple_server.dart' as xml_rpc_server;
 import 'src/converter.dart';
-
-// TODO: Export any libraries intended for clients of this package.
 
 class RobotRemoteServer {
   late RemoteLibraryFactory _libraryFactory;
@@ -62,7 +57,6 @@ class RemoteLibraryFactory {
     Map library_information = {
       '__intro__': {'doc': 'Library documentation'},
     };
-    print(library_information is! Map<String, Object?>);
     for (var v in class_mirror.declarations.values) {
       if (v is MethodMirror) {
         var props = {
