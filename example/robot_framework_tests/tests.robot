@@ -9,4 +9,4 @@ ${PORT}           8270
 Fly Spacecraft
     Log    Starting
     ${items2} =    Spacecraft.describe
-    Spacecraft.takeOff    10
+    Spacecraft.Return To Earth    10

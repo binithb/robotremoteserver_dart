@@ -1,22 +1,78 @@
-A library for Dart developers.
+# robotremoteserver
 
-Created from templates made available by Stagehand under a BSD-style
-[license](https://github.com/dart-lang/stagehand/blob/master/LICENSE).
+A dart module providing the [robot framework](http://www.robotframework.org) remote library interface.
 
 ## Usage
 
-A simple usage example:
+A simple usage example that can fly a Spacecraft remotely
 
 ```dart
-import 'package:robotremoteserver/robotremoteserver.dart';
+//define Spacecraft class to be flown remotely
 
-main() {
-  var awesome = new Awesome();
+class Spacecraft {
+  String name;
+  DateTime? launchDate;
+
+  Spacecraft(this.name, this.launchDate) {
+  }
+
+  Spacecraft.unlaunched(String name) : this(name, null);
+
+  int? get launchYear => launchDate?.year; // read-only non-final property
+
+  String describe() {
+    var description = 'I am a Spacecraft called: $name';
+    print(description);
+    var launchDate = this.launchDate; // Type promotion doesn't work on getters.
+    if (launchDate != null) {
+      int years = DateTime
+          .now()
+          .difference(launchDate)
+          .inDays ~/ 365;
+      print('Launched: $launchYear ($years years ago)');
+    } else {
+      print('Unlaunched');
+    }
+    return description;
+  }
+
+  int returnToEarth(int mins) {
+    print(" I will return to earth in $mins mins");
+    return 0;
+  }
 }
 ```
 
-## Features and bugs
+```dart
+//Start remote server for Spacecraft
 
-Please file feature requests and bugs at the [issue tracker][tracker].
+import 'package:robotremoteserver/robotremoteserver.dart';
 
-[tracker]: http://example.com/issues/replaceme
+void main() async {
+  final rrs = RobotRemoteServer(Spacecraft("voyager", DateTime(1977, 9, 5)));
+  rrs.serve();
+}
+```
+
+Define Robot Framework testsuite for Spacecraft
+
+```robotframework
+*** Settings ***
+Library           Remote    http://${ADDRESS}:${PORT}    WITH NAME    Spacecraft
+
+*** Variables ***
+${ADDRESS}        127.0.0.1
+${PORT}           8270
+
+*** Test Cases ***
+Fly Spacecraft
+Log    Starting
+${items2} =    Spacecraft.describe
+Spacecraft.Return To Earth    10
+```
+
+## Run Robot Framework testcase
+
+Install [robot framework](https://github.com/robotframework/robotframework/blob/master/INSTALL.rst) first
+
+robot .

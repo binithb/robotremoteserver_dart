@@ -26,8 +26,8 @@ class Spacecraft {
     return description;
   }
 
-  int takeOff(int mins) {
-    print(" I will take off in $mins mins");
+  int returnToEarth(int mins) {
+    print(" I will return to earth in $mins mins");
     return 0;
   }
 }
