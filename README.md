@@ -7,7 +7,7 @@ A dart module providing the [robot framework](http://www.robotframework.org) rem
 A simple usage example that can control a Spacecraft remotely
 
 ```dart
-//define Spacecraft class to be control remotely
+//define Spacecraft class to be controlled remotely
 
 class Spacecraft {
   String name;
