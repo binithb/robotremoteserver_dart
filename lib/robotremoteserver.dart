@@ -24,7 +24,6 @@ class RobotRemoteServer {
     this._libraryFactory = RemoteLibraryFactory(library);
     this.robotRemoteHandler = RobotRemoteHandler(robotCodecs);
     this._register_functions();
-    this.serve();
   }
 
   void _register_functions() {
@@ -99,22 +98,4 @@ class RemoteLibraryFactory {
     resp["return"] = ret.reflectee.toString();
     return resp;
   }
-}
-
-void main() async {
-  // final s = server.SimpleXmlRpcServer(
-  //     host: URL, port: PORT, handler: RobotRemoteServer());
-  // await s.start();
-  // print("started rf remote server");
-  // var voyager = Spacecraft('Voyager I', DateTime(1977, 9, 5));
-  // var methodNames = RemoteLibraryFactory(voyager).get_library_information();
-  // print(methodNames);
-  // methodNames["describe"]();
-
-  // final rrs = RobotRemoteServer(Spacecraft(), {host='127.0.0.1', port=8270}) ;
-  // Map map = {"a": "n"};
-  // print(reflect(map).type.reflectedType.toString());
-  // print(map is Map<dynamic, dynamic?>);
-  // print("n" is Object);
-  //final rrs = RobotRemoteServer(Spacecraft("voyager", DateTime(1977, 9, 5)));
 }
