@@ -78,4 +78,6 @@ Return to earth
 
 Install [robot framework](https://github.com/robotframework/robotframework/blob/master/INSTALL.rst) first
 
+run the testcase 
+
 robot .
