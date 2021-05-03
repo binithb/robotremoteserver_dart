@@ -6,7 +6,9 @@ ${ADDRESS}        127.0.0.1
 ${PORT}           8270
 
 *** Test Cases ***
-Fly Spacecraft
-    Log    Starting
-    ${items2} =    Spacecraft.describe
+Describe spacecraft
+    ${spacecraft details} =    Spacecraft.describe
+    Log    ${spacecraft details}
+
+Return to earth
     Spacecraft.Return To Earth    10
