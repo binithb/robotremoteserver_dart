@@ -4,10 +4,10 @@ A dart module providing the [robot framework](http://www.robotframework.org) rem
 
 ## Usage
 
-A simple usage example that can fly a Spacecraft remotely
+A simple usage example that can control a Spacecraft remotely
 
 ```dart
-//define Spacecraft class to be flown remotely
+//define Spacecraft class to be controlled remotely
 
 class Spacecraft {
   String name;
