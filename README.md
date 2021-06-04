@@ -1,4 +1,4 @@
-# robotremoteserver
+# robotremoteserver_dart
 
 A dart module providing the [robot framework](http://www.robotframework.org) remote library interface.
 
@@ -46,7 +46,7 @@ class Spacecraft {
 ```dart
 //Start remote server for Spacecraft
 
-import 'package:robotremoteserver/robotremoteserver.dart';
+import 'package:robotremoteserver_dart/robotremoteserver.dart';
 
 void main() async {
   final rrs = RobotRemoteServer(Spacecraft("voyager", DateTime(1977, 9, 5)));
