@@ -6,9 +6,9 @@ import 'package:xml_rpc/simple_server.dart' as xml_rpc_server;
 import 'src/converter.dart';
 
 class RobotRemoteServer {
-  late RemoteLibraryFactory _libraryFactory;
-  late xml_rpc_server.SimpleXmlRpcServer _server;
-  late RobotRemoteHandler robotRemoteHandler;
+  RemoteLibraryFactory _libraryFactory;
+  xml_rpc_server.SimpleXmlRpcServer _server;
+  RobotRemoteHandler robotRemoteHandler;
 
   var port;
   var host;

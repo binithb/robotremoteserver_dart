@@ -1,4 +1,4 @@
-import 'package:robotremoteserver_dart/robotremoteserver.dart';
+import 'package:robotremoteserver_dart/robotremoteserver_dart.dart';
 import 'package:test/test.dart';
 
 void main() {

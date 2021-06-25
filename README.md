@@ -46,7 +46,7 @@ class Spacecraft {
 ```dart
 //Start remote server for Spacecraft
 
-import 'package:robotremoteserver_dart/robotremoteserver.dart';
+import 'package:robotremoteserver_dart/robotremoteserver_dart.dart';
 
 void main() async {
   final rrs = RobotRemoteServer(Spacecraft("voyager", DateTime(1977, 9, 5)));
