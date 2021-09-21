@@ -8,9 +8,9 @@ class Spacecraft {
   }
 
   // Named constructor that forwards to the default one.
-  Spacecraft.unlaunched(String name) : this(name, null);
+  Spacecraft.unlaunched(String name) : this(name, DateTime.now());
 
-  int get launchYear => launchDate?.year; // read-only non-final property
+  int get launchYear => launchDate.year; // read-only non-final property
 
   // Method.
   String describe() {
